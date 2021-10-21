@@ -1,0 +1,288 @@
+#page-login{
+    width: 35%;
+    margin: 0px auto;
+    font-size: 14px;
+    padding: 20px;
+    background: #FFF;
+    box-shadow: 0px 1px 69.16px 6.84px rgba(20,64,51,0.05);
+}
+#page-login.account-profile{
+    width: 100% !important;
+}
+#page-login .title-head {
+    font-size: 20px;
+    line-height: 20px;
+    margin: 0;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+#page-login .title-mul{
+    font-size: 15px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #D90;
+}
+#page-login .title-head.line{
+    position: relative;
+    padding-bottom: 8px;
+}
+#page-login .title-head.line:after{
+    position: absolute;
+    left: 0px;
+    width: 50px;
+    height: 2px;
+    background: var(--color-key);
+    content: '';
+    bottom: 0px;
+}
+#page-login .required{
+    color: #FF0000;
+}
+#page-login .form-group label{
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+#page-login .form-group label.error{
+    color: #ff0000;
+    text-transform: none;
+    margin-top: 10px;
+}
+#page-login .form-group .form-control{
+    width: 100%;
+    height: 40px;
+    border: 1px solid #DDD;
+    outline: none;
+    padding: 0px 10px;
+}
+#page-login .form-group .form-control[disabled]{
+    background: #f7f7f7;
+}
+#page-login .form-group .form-control.error{
+    border: 1px solid #ff0000;
+}
+#page-login .form-group .form-control:focus{
+    border: 1px solid #008800;
+}
+#page-login .btn-link-style{
+    color: #0275d8;
+}
+#page-login .btn-blues{
+    position: relative;
+    display: inline-block;
+    padding: 8px 28px;
+    line-height: normal;
+    border: 1px solid #af1713;
+    text-transform: uppercase;
+    font-size: 14px;
+    height: 40px;
+    text-align: center;
+    font-weight: 400;
+    font-style: normal;
+    background-color: transparent;
+    -webkit-transition: color 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86),border 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    transition: color 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86),border 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    z-index: 1;
+    -webkit-tap-highlight-color: initial;
+    color: #fff;
+    width: 100%;
+    background-color: #af1713;
+    cursor: pointer;
+}
+#page-login .btn-blues.auto-w{
+    width: auto !important
+}
+#page-login .login--notes {
+    text-align: center;
+    color: #999;
+    font-size: 12px;
+    margin-top: 10px;
+    margin-bottom: 0;
+    line-height: 20px;
+}
+#page-login .text-login{
+    font-weight: 700;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+#page-login .text-login a{
+    color: #af1713;
+}
+
+#page-login .text-forgot{
+    font-weight: 400;
+}
+#page-login .text-forgot a{
+    color: #af1713;
+}
+#page-login .btn-social {
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    margin: 5px 0;
+    opacity: 0.85;
+    display: inline-block;
+    font-size: 17px;
+    line-height: 20px;
+    text-decoration: none;
+}
+#page-login .fb {
+    background-color:#4267B2;
+    color: white;
+}
+#page-login .google {
+    background-color: #EA4335;
+    color: white;
+}
+#page-login .line-or{
+    width: 100%;
+    height: 1px;
+    background: #ccc;
+    position: relative;
+    margin: 30px 0px;
+}
+#page-login .line-or span{
+    display: inline-block;
+    width: 56px;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    text-align: center;
+    background: #FFF;
+    position: absolute;
+    left: calc(50% - 28px);
+    top: calc(50% - 15px);
+}
+
+.account-list li a{
+    cursor: pointer;
+    font-size: 14px;
+    color: #757575;
+    letter-spacing: 0;
+    line-height: 22px;
+    text-decoration: none;
+    padding: 2px 0px;
+    display: block;
+}
+.title-account{
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.form-flex-col{
+    height: 40px;
+    border: 1px solid #DDD;
+    outline: none;
+    padding: 0px 10px;
+    margin-right: -1px;
+    flex-grow: 1
+}
+.form-flex-col:last-child{
+    margin-right: 0;
+}
+.btn-ap{
+    display: inline-block;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    background: #FFF;
+    color: #FFF;
+    padding: 0px 4px;
+    border: 1px solid;
+    border-radius: 4px;
+    font-size: 13px;
+}
+.btn-ap.r{
+    background: rgba(255,0,0,0.6);
+    border-color: rgba(255,0,0,0.6);
+}
+.btn-ap.b{
+    background: rgba(0,154,255,0.6);
+    border-color: rgba(0,154,255,0.6);
+}
+.btn-ap.g{
+    background:rgba(11, 175, 0, 0.6);
+    border-color:rgba(11, 175, 0, 0.6);
+}
+.set_default{
+    color: #46A049;
+}
+.check-default{
+    cursor: pointer;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    box-sizing: border-box;
+    display: inline-block;
+    min-width: 1.5em;
+    padding: 4px 10px;
+    margin-left: 2px;
+    text-align: center;
+    text-decoration: none !important;
+    cursor: pointer;
+    *cursor: hand;
+    color: #333 !important;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    border: 1px solid #FFF !important;
+}
+table.dataTable, table.dataTable th, table.dataTable td{
+    font-size: 13px;
+}
+table.dataTable{
+    width: 100%;
+    float: left;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+table.dataTable tfoot th, table.dataTable tfoot td{
+        padding: 10px 10px 6px 10px;
+}
+table.dataTable tfoot th, table.dataTable tfoot td{
+        border-top: 1px solid #DDD;
+}
+table.dataTable{
+    min-width: 938px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.thongtin-donhang{
+    font-size: 16px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: var(--color-key)
+}
+.row-order{
+    margin-bottom: 10px;
+}
+.row-order label{
+    width: 100px;
+}
+@media screen and (max-width: 992px) {
+    .account-page > .col-2{
+        width: calc(100%);
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .account-page > .col-2 > .item-menu-account{
+        width: calc(100% / 2);
+    }
+    .account-page > .col-10{
+        width: calc(100%)
+    }
+}
+@media screen and (max-width: 767px) {
+    #page-login{
+        width: calc(100%)
+    }
+    .form-signup .form-group.col--2,.form-signup .form-group.col--3{
+        width: 100%;
+    }
+    .desc-order .col--2{
+        width: calc(100%);
+    }
+    .desc-order .col--2:first-child{
+        margin-bottom: 20px;
+    }
+}

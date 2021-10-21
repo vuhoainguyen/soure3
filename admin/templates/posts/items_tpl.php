@@ -1,0 +1,215 @@
+<?php 
+    $csetting = $setting[$_GET['com']][$_GET['type']];
+?>
+<!--Content Header (Page header)-->
+<div class="content-header row align-items-center m-0">
+    <nav aria-label="breadcrumb" class="col-sm-4 order-sm-last mb-3 mb-sm-0 p-0 ">
+        <ol class="breadcrumb d-inline-flex font-weight-600 fs-13 bg-white mb-0 float-sm-right">
+            <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
+            <li class="breadcrumb-item"><a href="index.html?com=posts&act=man<?=$url_type?>">Danh sách</a></li>
+            <li class="breadcrumb-item active"><?=$setting[$_GET['com']][$_GET['type']]['name']?></li>
+        </ol>
+    </nav>
+    <div class="col-sm-8 header-title p-0">
+        <div class="media">
+            <div class="header-icon text-success mr-3"><i class="typcn typcn-puzzle-outline"></i></div>
+            <div class="media-body">
+                <h1 class="font-weight-bold">Danh mục <?=$setting[$_GET['com']][$_GET['type']]['name']?></h1>
+                <small>Hệ thống quản trị nội dung website</small>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/.Content Header (Page header)--> 
+<div class="body-content">
+    <?=$func->messagePage($_GET['message'])?>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="fs-17 font-weight-600 mb-0">Danh sách</h6>
+                        </div>
+                        <div>
+                            <a class="btn btn-danger w-100p ml-1 deleteChoose" href="index.html?com=posts&act=delete<?=$url_type?>" role="button">Xóa chọn</a>
+                            <a class="btn btn-success w-100p ml-1" href="index.html?com=posts&act=add<?=$url_type?>" role="button">Thêm mới</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form action="index.html" method="get" name="form-post" id="form-post" accept-charset="utf-8">
+                        <input type="hidden" name="com" value="posts">
+                        <input type="hidden" name="act" value="man">
+                        <input type="hidden" name="type" value="<?=$_GET['type']?>">
+                        
+                        <?php if($csetting['dropdown']==true) { ?>
+                        <div class="row">
+                            <?php if($csetting['list']==true) { ?>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="font-weight-600">Danh mục cấp 1</label>
+                                    <select class="form-control basic-single" name="id_list" id="id_list" onChange="window.location.href='index.html?com=<?=$_GET['com']?>&act=man&type=<?=$_GET['type']?>&id_list='+this.value">
+                                        <option value="0">Chọn danh mục cấp 1</option>
+                                        <?php for($i=0;$i<count($items_list);$i++){ ?>
+                                        <option value="<?=$items_list[$i]['id']?>" <?=($_GET['id_list']==$items_list[$i]['id']) ? 'selected':''?>><?=$items_list[$i]['name_vi']?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <?php } ?>
+                            <?php if($csetting['cat']==true) { ?>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="font-weight-600">Danh mục cấp 2</label>
+                                    <select class="form-control basic-single" name="id_cat" id="id_cat" onChange="window.location.href='index.html?com=<?=$_GET['com']?>&act=man&type=<?=$_GET['type']?>&id_list=<?=$_GET['id_list']?>&id_cat='+this.value">
+                                        <option value="0">Chọn danh mục cấp 2</option>
+                                        <?php for($i=0;$i<count($items_cat);$i++){ ?>
+                                        <option value="<?=$items_cat[$i]['id']?>" <?=($_GET['id_cat']==$items_cat[$i]['id']) ? 'selected':''?>><?=$items_cat[$i]['name_vi']?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <?php } ?>
+                            <?php if($csetting['item']==true) { ?>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="font-weight-600">Danh mục cấp 3</label>
+                                    <select class="form-control basic-single" name="id_item" id="id_item" onChange="window.location.href='index.html?com=<?=$_GET['com']?>&act=man&type=<?=$_GET['type']?>&id_list=<?=$_GET['id_list']?>&id_cat=<?=$_GET['id_cat']?>&id_item='+this.value">
+                                        <option value="0">Chọn danh mục cấp 3</option>
+                                        <?php for($i=0;$i<count($items_item);$i++){ ?>
+                                        <option value="<?=$items_item[$i]['id']?>" <?=($_GET['id_item']==$items_item[$i]['id']) ? 'selected':''?>><?=$items_item[$i]['name_vi']?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <?php } ?>
+                            <?php if($csetting['sub']==true) { ?>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="font-weight-600">Danh mục cấp 4</label>
+                                    <select class="form-control basic-single" name="id_sub" id="id_sub" onChange="window.location.href='index.html?com=<?=$_GET['com']?>&act=man&type=<?=$_GET['type']?>&id_list=<?=$_GET['id_list']?>&id_cat=<?=$_GET['id_cat']?>&id_item=<?=$_GET['id_item']?>&id_sub='+this.value">
+                                        <option value="0">Chọn danh mục cấp 4</option>
+                                        <?php for($i=0;$i<count($items_sub);$i++){ ?>
+                                        <option value="<?=$items_sub[$i]['id']?>" <?=($_GET['id_item']==$items_sub[$i]['id']) ? 'selected':''?>><?=$items_sub[$i]['name_vi']?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <?php } ?>
+                        </div>
+                        <?php } ?>
+
+                        <div class="row">
+                            <?php if($_GET['type']=='khach-hang-page') { ?><div class="col-md-5"><?php } else{ ?><div class="col-md-10"><?php } ?>
+                                <div class="form-group">
+                                    <label class="font-weight-600">Từ khóa</label>
+                                    <input class="form-control" type="text" name="keyword" value="<?=(isset($_GET['keyword'])) ? htmlspecialchars($_GET['keyword']):''?>" placeholder="Nhập từ khóa...." data-toggle="tooltip" data-placement="top" title="Nhập từ khóa bài viết" />
+                                </div>
+                            </div>
+                            <?php if($_GET['type']=='khach-hang-page') { ?>
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <label class="font-weight-600">Danh mục dịch vụ</label>
+                                    <select class="form-control basic-single" name="id_service" id="id_service" onChange="window.location.href='index.html?com=<?=$_GET['com']?>&act=man&type=<?=$_GET['type']?>&id_service='+this.value">
+                                        <option value="0">Chọn danh mục cấp 1</option>
+                                        <?php for($i=0;$i<count($items_dv);$i++){ ?>
+                                        <option value="<?=$items_dv[$i]['id']?>" <?=($_GET['id_service']==$items_dv[$i]['id']) ? 'selected':''?>><?=$items_dv[$i]['name_vi']?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <?php } ?>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="font-weight-600">-------</label>
+                                    <button type="submit" class="btn btn-fill btn-primary w-100">Thống kê / tìm kiếm</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </form>
+                    <div class="table-responsive">
+                        <table class="table <?php if($config['paging-table']==true){ ?>v table-borderless no-styling basic<?php }else{ ?>display table-striped table-hover table-border<?php } ?>">
+                            <thead>
+                                <tr>
+                                    <th width="40">
+                                        <div class="check-table" >
+                                            <input id="checkAll" type="checkbox" class="checkboxAll">
+                                            <label for="checkAll" class="pl-0"></label>
+                                        </div>
+                                    </th>
+                                    <th width="70">#</th>
+                                    <?php if($csetting['photo']==true) { ?><th width="70">Hình</th><?php } ?>
+                                    <?php if($csetting['dropdown']==true) { ?>
+                                        <?php if($csetting['list']==true) { ?><th width="80">Cấp 1</th><?php } ?>
+                                        <?php if($csetting['cat']==true) { ?><th width="80">Cấp 2</th><?php } ?>
+                                        <?php if($csetting['item']==true) { ?><th width="80">Cấp 3</th><?php } ?>
+                                        <?php if($csetting['sub']==true) { ?><th width="80">Cấp 4</th><?php } ?>
+                                    <?php } ?>
+                                    <?php if($_GET['type']=='khach-hang-page') { ?>
+                                    <th width="80">Dịch vụ</th>
+                                    <?php } ?>
+                                    <th>Tiêu đề</th>
+                                    <?php if(!empty($csetting['status'])){ ?>
+                                    <?php foreach($csetting['status'] as $k=>$v){ ?>
+                                    <th width="70"><?=$v?></th>
+                                    <?php } ?>
+                                    <?php } ?>
+                                    <th width="73">Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php if(count($items)) { foreach ($items as $k => $v) { ?>
+                                <tr>
+                                    <td>
+                                        <div class="check-table<?=($config['paging-table']==true) ? '':' auto'?>">
+                                            <input id="checkbox<?=$v['id']?>" name="chon" class="checker" type="checkbox" value="<?=$v['id']?>">
+                                            <label for="checkbox<?=$v['id']?>" class="pl-0"></label>
+                                        </div>
+                                    </td>
+                                    <td width="70">
+                                        <input type="text" class="form-control form-control-sm text-center update-numb" data-id="<?=$v['id']?>" data-table="<?=$_GET['com']?>" value="<?=$v['numb']?>">
+                                    </td>
+                                    <?php if($csetting['photo']==true) { ?><td><img src="<?=$path.$v['photo']?>" width="50" onerror="this.src='assets/dist/img/icon-no-image.svg';"></td><?php } ?>
+                                    <?php if($csetting['dropdown']==true) { ?>
+                                        <?php if($csetting['list']==true) { ?><td><?=$func->getOneFieldQuery($v['id_list'],'lists','name_vi')?></td><?php } ?>
+                                        <?php if($csetting['cat']==true) { ?><td><?=$func->getOneFieldQuery($v['id_cat'],'cats','name_vi')?></td><?php } ?>
+                                        <?php if($csetting['item']==true) { ?><td><?=$func->getOneFieldQuery($v['id_item'],'items','name_vi')?></td><?php } ?>
+                                        <?php if($csetting['sub']==true) { ?><td><?=$func->getOneFieldQuery($v['id_sub'],'subs','name_vi')?></td><?php } ?>
+                                    <?php } ?>
+                                    <?php if($_GET['type']=='khach-hang-page') { ?><td><?=$func->getOneFieldQuery($v['id_service'],'lists','name_vi')?></td><?php } ?>
+                                    <td style="max-width: 250px;"><?=$v['name_vi']?> (Lượt xem: <?=$v['view']?>)</td>
+                                    <?php if(!empty($csetting['status'])){ $arr_status = explode(',',$v['status']);?>
+                                    <?php foreach($csetting['status'] as $k1=>$v1){ ?>
+                                    <td>
+                                        <div class="check-table<?=($config['paging-table']==true) ? '':' auto'?>">
+                                            <input id="checkbox-status-<?=$k1?><?=$v['id']?>" class="checker-status" type="checkbox" data-table="<?=$_GET['com']?>" data-field="status" name="status<?=$v['id']?>[]" data-id="<?=$v['id']?>" value="<?=$k1?>" <?=(in_array($k1,$arr_status)) ? 'checked':''?> data-com="<?=$_GET['com']?>" data-types="<?=$_GET['type']?>" data-act="status">
+                                            <label for="checkbox-status-<?=$k1?><?=$v['id']?>" class="pl-0"></label>
+                                        </div>
+                                    </td>
+                                    <?php } ?>
+                                    <?php } ?>
+                                    <td>
+                                        <a href="index.html?com=posts&act=edit<?=$url_type?>&id=<?=$v['id']?>" class="btn btn-success-soft btn-sm mr-1"><i class="typcn typcn-eye-outline"></i></a>
+                                        <a href="index.html?com=posts&act=delete<?=$url_type?>&id=<?=$v['id']?>" onClick="if(!confirm('Xác nhận xóa')) return false;" class="btn btn-danger-soft btn-sm"><i class="typcn typcn-trash"></i></a>
+                                    </td>
+                                </tr>
+                                <?php } } ?>
+                            </tbody>
+                        </table>
+                    </div>
+                    <?php if($config['paging-table']==false){ ?>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <nav aria-label="Page navigation example">
+                                <?=$paging?>
+                            </nav>
+                        </div>
+                    </div>
+                    <?php } ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!--/.body content-->
